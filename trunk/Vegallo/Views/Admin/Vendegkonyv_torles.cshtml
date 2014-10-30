@@ -1,0 +1,24 @@
+﻿@model Vegallomas.Models.Vendeg
+
+@{
+    ViewBag.Title = "Vendegkonyv_torles";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Törlés a vendégkönyvből</h2>
+
+<h3>Biztos, hogy törölni szeretnéd ezt a bejegyzést?</h3>
+<div id="post">
+    <p id="header">
+        @Html.DisplayFor(model => model.nev) - @Html.DisplayFor(model => model.datum)
+    </p>
+    <p id="message">
+        @Html.Raw(Model.uzenet)
+    </p>
+</div>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Törlés" /> |
+        @Html.ActionLink("Vissza", "Vendegkonyv")
+    </p>
+}

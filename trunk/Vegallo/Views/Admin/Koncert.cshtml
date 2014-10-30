@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Vegallomas.Models.program>
+
+@{
+    ViewBag.Title = "Koncert";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Koncert</h2>
+
+<p>
+    @Html.ActionLink("Új koncert hozzáadása", "Ujkoncert")
+</p>
+<table id="adminKoncert">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zenakarok)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nyitas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kezdes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jegyar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plakat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.elmarad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum)
+        </td>
+        <td>
+            @Html.Raw(item.zenakarok)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nyitas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kezdes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jegyar)
+        </td>
+        <td>
+            @if(item.plakat != string.Empty){
+                <a href="@item.plakat">plakát</a>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.elmarad)
+        </td>
+        <td>
+            @Html.ActionLink("Szerkeszt", "Koncert_modositas", new { id=item.programID })
+        </td>
+    </tr>
+}
+
+</table>

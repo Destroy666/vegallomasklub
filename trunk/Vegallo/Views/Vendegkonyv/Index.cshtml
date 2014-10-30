@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Vegallomas.Models.Vendeg>
+
+@{
+    ViewBag.Title = "Vendégkönyv";
+}
+
+<h2>Vendégkönyv</h2>
+
+<p id="new_post">
+    @Html.ActionLink("Új bejegyzés", "uj_bejegyzes")
+</p>
+
+@foreach(var item in Model) {
+<div id="post">
+    <p id="header">
+        @Html.DisplayFor(modelItem => item.nev) - @Html.DisplayFor(modelItem => item.datum)
+    </p>
+    <p id="message">
+        @Html.Raw(item.uzenet)
+    </p>
+</div>
+}

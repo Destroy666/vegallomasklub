@@ -1,0 +1,30 @@
+﻿@model Vegallomas.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Regisztracio";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Regisztráció</legend>
+        <table>
+            <tr>
+                <td>@Html.LabelFor(m => m.UserName)</td>
+                <td>@Html.TextBoxFor(m => m.UserName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Password)</td>
+                <td>@Html.PasswordFor(m => m.Password)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ConfirmPassword)</td>
+                <td>@Html.PasswordFor(m => m.ConfirmPassword)</td>
+            </tr>
+        </table>
+        <input type="submit" value="Regisztráció" />
+    </fieldset>
+}

@@ -1,0 +1,6 @@
+﻿@{
+     if (!WebSecurity.Initialized)
+    {
+        WebSecurity.InitializeDatabaseConnection("vegDB", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+    }
+}

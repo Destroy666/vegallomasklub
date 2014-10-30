@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Végállomás klub - @ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <img src="~/Image/Base/banner.jpg" alt="Végállomás Klub - Szombathely, Körmendi út 92." />
+    </header>
+    <section>
+        <nav>        
+            <ul>
+                <li>@Html.ActionLink("Főoldal","Index","Home")</li>
+                <li>@Html.ActionLink("Koncertek","Index","Koncert")</li>
+                <li>@Html.ActionLink("Technika","Index","Technika")</li>
+                <li>@Html.ActionLink("Vendégkönyv","Index","Vendegkonyv")</li>
+                <li>@Html.ActionLink("Elérhetőségek","Index","Elerhetoseg")</li>
+            </ul>
+        </nav>
+        <article>
+            <table>
+                <tr>
+                    <td style="width:150px;">
+                        Menü:
+                        <ul>
+                            <li>@Html.ActionLink("Koncertek","Koncert","Admin")</li>
+                            <li>@Html.ActionLink("Vendégkönyv","Vendegkonyv","Admin")</li>
+                            <li>-----------</li>
+                            <li>@Html.ActionLink("Jelszó csere","Jelszo_csere","Admin")</li>
+                            <li>@Html.ActionLink("Regisztráció","Regisztracio","Admin")</li>
+                            <li>@Html.ActionLink("Kijelentkezés","Kijelentkezes","Admin")</li>
+                        </ul>
+                    </td>
+                    <td>
+                        @RenderBody()
+                    </td>
+                </tr>
+            </table>
+        </article>
+    </section>
+    <footer>
+        A weblapot készítette: Barasits Péter
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

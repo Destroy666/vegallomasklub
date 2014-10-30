@@ -1,0 +1,43 @@
+﻿@model Vegallomas.Models.Vendeg
+
+@{
+    ViewBag.Title = "Vendégkönyv: Új bejegyzés";
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Új hozzászólás</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nev)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nev)
+            @Html.ValidationMessageFor(model => model.nev)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.uzenet)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.uzenet, new { @class="ckeditor", @id="text-details" })
+            @Html.ValidationMessageFor(model => model.uzenet)
+        </div>
+        <p>
+            <input type="submit" value="Küld" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Vissza", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript" />
+
+    <script type="text/javascript">CKEDITOR.replace('uzenet')</script>
+}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Vegallomas.Models.program>
+
+@{
+    ViewBag.Title = "Koncertek";
+}
+
+<h2>Koncertek</h2>
+
+<table id="koncert">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zenakarok)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nyitas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kezdes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jegyar)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="@(item.elmarad == true ? "elmarad" : "")">
+        <td>
+            @Html.DisplayFor(modelItem => item.datum)
+        </td>
+        <td>
+            @Html.Raw(item.zenakarok)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nyitas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kezdes)
+        </td>
+        <td>
+            @if (item.jegyar == 0)
+            {
+                @Html.Raw("INGYENES")
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.jegyar)
+            }
+        </td>
+    </tr>
+}
+
+</table>

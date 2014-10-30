@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Vegallomas.Models.program>
+
+@{
+    ViewBag.Title = "Üdvözöljük";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Üdvözöljük a Végállomás klub weblapján!</h2>
+
+<h3>Következő koncertek:</h3>
+
+<table id="fooldal">
+    <tr>
+        @foreach(var item in Model)
+        {
+            <td valign="top" style="width: 50%">
+                @if(item.elmarad){
+                    <h1>
+                        ELMARAD!
+                    </h1>
+                }
+
+                @Html.DisplayFor(modelItem => item.datum)
+                <br />
+                <img src="@Html.DisplayFor(modelItem => item.plakat)" id="plakat" />
+                <br />
+                @Html.Raw(item.zenakarok)<br />
+                <br />
+                @Html.DisplayNameFor(model => model.nyitas): @Html.DisplayFor(modelItem => item.nyitas)<br />
+                @Html.DisplayNameFor(model => model.kezdes): @Html.DisplayFor(modelItem => item.kezdes)<br />
+                @Html.DisplayNameFor(model => model.jegyar):
+                @if (item.jegyar == 0)
+                {
+                    @Html.Raw("INGYENES")
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.jegyar)
+                }
+            </td>
+        }
+    </tr>
+</table>

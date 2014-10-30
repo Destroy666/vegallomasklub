@@ -1,0 +1,201 @@
+﻿body {
+    width: 990px;
+    margin: 0 auto;
+    background-image:url("../Image/Base/wall.jpg");
+    background-position: center;
+}
+
+header {
+    height:223px;
+}
+
+section {
+    background: url("../Image/Base/menu_bal.png"), url("../Image/Base/menu_jobb.png"), rgba(100%,100%,100%,0.7);
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right top;
+    padding: 0px 120px 20px 120px;
+    border-radius: 0px 0px 30px 30px;
+    min-height:400px;
+    overflow:auto;
+}
+
+nav {
+    padding-bottom: 20px;
+}
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+        nav a:hover {
+            background-color: white;
+            color: black;
+        }
+
+    nav ul {
+        list-style: none;
+        margin:0px;
+        background-color:black;
+        border-radius: 0px 0px 20px 20px;
+        box-shadow: 0px 5px 10px #888888;
+    }
+
+        nav ul li {
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
+            color: white;
+            padding: 10px;
+        }
+
+footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: rgba(100%,100%,100%,0.7);
+    padding: 10px;
+    border-radius:10px;
+    text-align: center;
+}
+
+img#elerhetoseg {
+    float:right;
+    margin-bottom:20px;
+}
+
+div#post {
+    background-color: lightgray;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 2px 2px gray;
+}
+
+    div#post p#header {
+        margin:0;
+        padding: 5px;
+        background-color: black;
+        border-radius: 10px 10px 0px 0px;
+        color: white;
+    }
+
+    div#post p#message {
+        margin: 0;
+        padding: 5px;
+    }
+
+.msg_box {
+    width: 99%;
+    height: 120px;
+}
+
+.elmarad {
+    color: red;
+    text-decoration: line-through;
+}
+
+table#koncert {
+    width: 100%;
+}
+
+table#koncert th, table#koncert td{
+    border-style: solid;
+    border-width: 1px;
+}
+
+table#fooldal {
+    width: 100%;
+}
+
+    table#fooldal tr td {
+        width: 50%;
+    }
+
+        table#fooldal tr td h1 {
+            color: red;
+        }
+
+.torles {
+    color: red;
+}
+
+table#adminKoncert tr td{
+    border-top-style: solid;
+    border-top-width: thin;
+}
+
+img#plakat {
+    max-width: 300px;
+}
+
+p#new_post a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    background-color: black;
+    box-shadow: 2px 2px gray;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+p#new_post a:hover {
+    color: black;
+    background-color: white;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+.message-success {
+    color: red;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
