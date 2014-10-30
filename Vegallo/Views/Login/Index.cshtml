@@ -1,0 +1,43 @@
+﻿@model Vegallomas.Models.LoginModel
+
+@{
+    ViewBag.Title = "Bejelentkezés";
+}
+
+<h2>Bejelentkezés</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.UserName)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.UserName)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(m => m.Password)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.Password)
+            </td>
+        </tr>
+    </table>
+    @Html.CheckBoxFor(m => m.RememberMe)
+    @Html.LabelFor(m => m.RememberMe)
+    <input type="submit" value="Bejelentkezés" />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

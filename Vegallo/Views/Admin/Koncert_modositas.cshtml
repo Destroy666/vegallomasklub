@@ -1,0 +1,122 @@
+﻿@model Vegallomas.Models.program
+
+@{
+    ViewBag.Title = "Koncert_modositas";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+
+    string newdate = string.Empty;
+    
+    if(Model != null){
+        newdate = Model.datum.ToString("yyyy-MM-dd");
+    }
+}
+
+<h2>Koncert_modositas</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>program</legend>
+
+        @Html.HiddenFor(model => model.programID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.datum)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.datum, new { @Value = newdate, @class = "datepicker"} )
+            @Html.ValidationMessageFor(model => model.datum)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.zenakarok)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.zenakarok, new { @class="ckeditor", @id="text-details" })
+            @Html.ValidationMessageFor(model => model.zenakarok)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nyitas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nyitas)
+            @Html.ValidationMessageFor(model => model.nyitas)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.kezdes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.kezdes)
+            @Html.ValidationMessageFor(model => model.kezdes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jegyar)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jegyar)
+            @Html.ValidationMessageFor(model => model.jegyar)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.plakat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.plakat)
+            @Html.ValidationMessageFor(model => model.plakat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.elmarad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.elmarad)
+            @Html.ValidationMessageFor(model => model.elmarad)
+        </div>
+
+        <p>
+            <input type="submit" value="Módosít" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Vissza", "Koncert")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript" ></script>
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+
+    <script type="text/javascript">
+        $.datepicker.regional['hu'] = {
+            closeText: 'bezárás',
+            prevText: '<< vissza',
+            nextText: 'előre >>',
+            currentText: 'ma',
+            monthNames: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június',
+            'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
+            monthNamesShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún',
+            'Júl', 'Aug', 'Szep', 'Okt', 'Nov', 'Dec'],
+            dayNames: ['Vasámap', 'Hétfö', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
+            dayNamesShort: ['Vas', 'Hét', 'Ked', 'Sze', 'Csü', 'Pén', 'Szo'],
+            dayNamesMin: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
+            dateFormat: 'yy-mm-dd', firstDay: 1,
+            isRTL: false
+        };
+
+        $.datepicker.setDefaults($.datepicker.regional['hu']);
+
+
+        $('.datepicker').datepicker({
+            altFormat: 'yy-mm-dd'
+        });
+    </script>
+}

@@ -1,0 +1,33 @@
+﻿@model Vegallomas.Models.LocalPasswordModel
+
+@{
+    ViewBag.Title = "Jelszó csere";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<p class="message-success">@ViewBag.StatusMessage</p>
+
+@using (Html.BeginForm("Jelszo_csere", "Admin"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Jelszó csere</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.OldPassword)
+                @Html.PasswordFor(m => m.OldPassword)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.NewPassword)
+                @Html.PasswordFor(m => m.NewPassword)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+        </ol>
+        <input type="submit" value="Jelszó csere" />
+    </fieldset>
+}
