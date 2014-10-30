@@ -9,7 +9,7 @@ namespace Vegallo.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Vegallomas.Models.vegDB context)
